@@ -22,7 +22,7 @@ app_ui <- function(request) {
         tags$br(), tags$br(),
         column(
           width = 6,
-          mod_editor_ui("editor")
+          mod_editor_ui("editor_1")
         )
       )
     )

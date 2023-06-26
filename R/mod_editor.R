@@ -12,9 +12,10 @@ mod_editor_ui <- function(id) {
   tagList(
     shiny::fluidRow(
       bslib::layout_column_wrap(
-        width = "8em", fixed_width = TRUE,
-        shiny::actionLink(ns("reset_editor"), "Clear text"),
-        shiny::actionLink(ns("load_example"), "Load example")
+        width = 1/3,
+        shiny::actionLink(ns("load_valid_ex"), "Load valid example"),
+        shiny::actionLink(ns("load_invalid_ex"), "Load invalid example"),
+        shiny::actionLink(ns("reset_editor"), "Clear text")
       )
     ), shiny::br(),
     shiny::fluidRow(shiny::uiOutput(ns("ace_editor"))),
@@ -32,20 +33,31 @@ mod_editor_ui <- function(id) {
 #' editor Server Functions
 #'
 #' @noRd
-mod_editor_server <- function(id){
-  moduleServer( id, function(input, output, session){
+mod_editor_server <- function(id) {
+  moduleServer(id, function(input, output, session) {
     ns <- session$ns
     output$ace_editor <- renderUI({
       shinyAce::aceEditor(ns("editor"),
         fontSize = 18,
         mode = "yaml", theme = "kuroir",
-        value = "participants:\n  - foo\n  - bar\nevidence_type: experimental",
-        height = "200px",
+        value = paste(
+          c(
+            "id: miiid: # ID",
+            "participants:",
+            rep("  -  # <PARTICIPANT>", 3),
+            "tax_id:",
+            rep("  -  # <PARTICIPANT_TAX_ID>", 3),
+            "evidence_type:  # <USING Evidence & Conclusion Ontology (ECO)>",
+            "reference:  # <DOI>"
+          ),
+          collapse = "\n"
+        ),
+        height = "300px",
         tabSize = 2,
         autoComplete = "live",
         autoCompleters = "static",
         autoCompleteList = list(
-          MIIID = c("participants","tax_id","evidence_type","reference","participants_outcome")
+          MIIID = c("participants", "tax_id", "evidence_type", "reference", "participants_outcome")
         )
       )
     })
