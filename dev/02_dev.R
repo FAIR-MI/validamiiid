@@ -46,7 +46,7 @@ usethis::use_test("app")
 # Documentation
 
 ## Vignette ----
-usethis::use_vignette("valida-miiid")
+usethis::use_vignette("validamiiid")
 devtools::build_vignettes()
 
 ## Code Coverage----

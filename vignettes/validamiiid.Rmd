@@ -1,8 +1,8 @@
 ---
-title: "valida-miiid"
+title: "validamiiid"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{valida-miiid}
+  %\VignetteIndexEntry{validamiiid}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -14,11 +14,11 @@ knitr::opts_chunk$set(
 )
 ```
 
-`{valida-miiid}` is a `{shiny}` application that helps experimenting with data that follows the Minimal Information about a Intermicrobial Interaction Data (MIIID) specifications. It uses the JSON schema artefact exported from the MIIID schema developed with the LinkML framework.
+`{validamiiid}` is a `{shiny}` application that helps experimenting with data that follows the Minimal Information about a Intermicrobial Interaction Data (MIIID) specifications. It uses the JSON schema artefact exported from the MIIID schema developed with the LinkML framework.
 
 Data is written in YAML but validated in JSON which requires a bit of transformation.
 
-The backend of `{valida-miiid}` is divided into three functions:
+The backend of `{validamiiid}` is divided into three functions:
 
 # `yaml_to_json()`
 

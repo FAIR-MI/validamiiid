@@ -9,7 +9,7 @@
 #'
 #' @noRd
 app_sys <- function(...) {
-  system.file(..., package = "valida-miiid")
+  system.file(..., package = "validamiiid")
 }
 
 

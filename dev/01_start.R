@@ -19,8 +19,8 @@
 ## to change the name in the app_sys() function in app_config.R /!\
 ##
 golem::fill_desc(
-  pkg_name = "valida-miiid", # The Name of the package containing the App
-  pkg_title = "valida-miiid: Edit and validate information on intermicrobial interaction data", # The Title of the package containing the App
+  pkg_name = "validamiiid", # The Name of the package containing the App
+  pkg_title = "validamiiid: Edit and validate information on intermicrobial interaction data", # The Title of the package containing the App
   pkg_description = "Edit and validate information on intermicrobial interaction data in an interactive fashion. Validation is done against the MIIID metadata schema. Correct information can be submitted directly to a GitHub repository for review.", # The Description of the package containing the App
   author_first_name = "Charlie", # Your First Name
   author_last_name = "Pauvert", # Your Last Name

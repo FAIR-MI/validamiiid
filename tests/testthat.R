@@ -7,6 +7,6 @@
 # * https://testthat.r-lib.org/reference/test_package.html#special-files
 
 library(testthat)
-library(valida-miiid)
+library(validamiiid)
 
-test_check("valida-miiid")
+test_check("validamiiid")

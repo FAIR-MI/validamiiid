@@ -15,10 +15,10 @@ app_ui <- function(request) {
         primary = "#2892d7", warning = "#ff7477",
         base_font = bslib::font_link("Hack", "https://cdnjs.cloudflare.com/ajax/libs/hack-font/3.3.0/web/hack.min.css")
       ),
-      title = "valida-miiid",
+      title = "validamiiid",
       column(
         width = 12, align = "center",
-        h1(strong("valida-miiid")),
+        h1(strong("validamiiid")),
         tags$br(), tags$br(),
         column(
           width = 6,
@@ -47,7 +47,7 @@ golem_add_external_resources <- function() {
     favicon(),
     bundle_resources(
       path = app_sys("app/www"),
-      app_title = "valida-miiid"
+      app_title = "validamiiid"
     )
     # Add here other external resources
     # for example, you can add shinyalert::useShinyalert()
