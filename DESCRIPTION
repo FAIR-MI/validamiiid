@@ -1,18 +1,23 @@
 Package: valida-miiid
-Title: valida-miiid: Edit and validate information on intermicrobial interaction data
+Title: valida-miiid: Edit and validate information on intermicrobial
+    interaction data
 Version: 0.0.0.9000
-Authors@R: person('Charlie', 'Pauvert', email = 'cpauvert@users.noreply.github.com', role = c('cre', 'aut'))
-Description: Edit and validate information on intermicrobial interaction data in an interactive fashion. Validation is done against the MIIID metadata schema. Correct information can be submitted directly to a GitHub repository for review.
+Authors@R: 
+    person("Charlie", "Pauvert", , "cpauvert@users.noreply.github.com", role = c("cre", "aut"))
+Description: Edit and validate information on intermicrobial interaction
+    data in an interactive fashion. Validation is done against the MIIID
+    metadata schema. Correct information can be submitted directly to a
+    GitHub repository for review.
 License: GPL (>= 3)
 Imports: 
     config (>= 0.3.1),
     golem (>= 0.4.1),
     shiny (>= 1.7.4)
-Encoding: UTF-8
-LazyData: true
-RoxygenNote: 7.1.1
 Suggests: 
     spelling,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
+Encoding: UTF-8
 Language: en-US
+LazyData: true
+RoxygenNote: 7.2.3
