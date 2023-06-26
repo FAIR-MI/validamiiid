@@ -20,11 +20,10 @@ mod_editor_ui <- function(id) {
     shiny::fluidRow(shiny::uiOutput(ns("ace_editor"))),
     shiny::fluidRow(
       bslib::layout_column_wrap(
-        width = 1 / 4,
-        shiny::actionButton(ns("validate"), "Validate"),
-        shiny::actionButton(ns("save"), "Save"),
+        width = 1 / 3,
+        shiny::actionButton(ns("validate"), "Validate", icon = icon("check")),
         shiny::downloadButton(ns("download")),
-        shiny::actionButton(ns("contribute"), "Contribute")
+        shiny::actionButton(ns("contribute"), "Contribute", icon = icon("share-from-square"))
       )
     )
   )
