@@ -10,9 +10,11 @@ Description: Edit and validate information on intermicrobial interaction
     GitHub repository for review.
 License: GPL (>= 3)
 Imports: 
+    bslib,
     config (>= 0.3.1),
     golem (>= 0.4.1),
-    shiny (>= 1.7.4)
+    shiny (>= 1.7.4),
+    shinyAce
 Suggests: 
     spelling,
     testthat (>= 3.0.0)
