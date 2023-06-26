@@ -16,6 +16,8 @@ Imports:
     shiny (>= 1.7.4),
     shinyAce
 Suggests: 
+    knitr,
+    rmarkdown,
     spelling,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
@@ -23,3 +25,4 @@ Encoding: UTF-8
 Language: en-US
 LazyData: true
 RoxygenNote: 7.2.3
+VignetteBuilder: knitr

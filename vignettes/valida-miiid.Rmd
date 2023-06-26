@@ -1,0 +1,117 @@
+---
+title: "valida-miiid"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{valida-miiid}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+`{valida-miiid}` is a `{shiny}` application that helps experimenting with data that follows the Minimal Information about a Intermicrobial Interaction Data (MIIID) specifications. It uses the JSON schema artefact exported from the MIIID schema developed with the LinkML framework.
+
+Data is written in YAML but validated in JSON which requires a bit of transformation.
+
+The backend of `{valida-miiid}` is divided into three functions:
+
+# `yaml_to_json()`
+
+This function converts a YAML string and convert into JSON string.
+
+
+```{r fct_yaml_to_json, echo=FALSE}
+library(yaml)
+library(magrittr)
+library(jsonlite)
+yaml_to_json <- function(yaml_text){
+  # Convert a text representation of a YAML to JSON string
+  # Trying to limit writing files in the shiny app
+  yaml::read_yaml(text = yaml_text) %>% 
+    jsonlite::toJSON(., auto_unbox = TRUE)
+}
+```
+
+
+```{r examples_yaml_to_json}
+yaml_to_json("")
+ex_yaml_pairwise <- paste(c(
+  "participants:",
+  "  - 'Phocaeicola alice'",
+  "  - 'Phocaeicola bob'",
+  "tax_id:",
+  "  - 353",
+  "  - 432"
+), collapse = "\n")
+yaml_to_json(ex_yaml_pairwise)
+```
+
+# `json_to_yaml()`
+
+This function converts (and lint) a JSON string vector (or file) and convert into JSON string vector (or path)
+
+```{r}
+json_to_yaml <- function(json_text, ...){
+  # Convert a text representation of a JSON to a YAML string
+  jsonlite:::fromJSON(json_text) %>% 
+    yaml::as.yaml(., indent.mapping.sequence = TRUE)
+}
+```
+
+```{r examples_json_to_yaml}
+ex_json_pairwise <- '{
+  "participants": ["Phocaeicola alice","Phocaeicola bob"],
+  "tax_id":[353,432]
+}'
+json_to_yaml(ex_json_pairwise)
+```
+
+
+# `validate_miiid_data()`
+
+This function relies on `{jsonvalidate}` to validate the converted data against the [MIIID schema](https://fair-mi.github.io/miiid-schema).
+
+## Schema generation
+
+A specific artifact of JSON has to be generated from the schema in LinkML:
+
+```bash
+gen-json-schema -t IntermicrobialInteraction src/miiid_schema/schema/miiid_schema.yaml > miiid_jsonschema.json
+# TODO: look into sub-schema validation using 
+# `jsonvalidate::json_validator` option reference = "#/$defs/IntermicrobialInteraction"
+# and why it throws a Error: TypeError: validator is not a function
+```
+
+## Validation
+
+```{r fct_validate_miiid_data}
+library(jsonvalidate)
+validate_miiid_data <- function(json_text, miiid_schema){
+  json_validate(json_text, miiid_schema, verbose = T, engine = "ajv")
+  # TODO: capture the tabular output when invalid file is used
+}
+```
+
+
+```{r examples_validate_miiid_data}
+validate_miiid_data(
+  here::here("data/valid.json"),
+  here::here("data/miiid_jsonschema.json")
+)
+validate_miiid_data(
+  here::here("data/invalid.json"),
+  here::here("data/miiid_jsonschema.json")
+)
+```
+
+
+# utils to add
+
+* TODO: add utils function get_schema_version
+* ~~TODO: add utils function insert_miiid_type~~
+* TODO: add utils function format/encode url for github issue

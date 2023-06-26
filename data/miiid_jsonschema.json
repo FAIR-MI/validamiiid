@@ -1,0 +1,142 @@
+{
+    "$defs": {
+        "IntermicrobialInteraction": {
+            "additionalProperties": false,
+            "description": "Represents an interaction between microbial entities",
+            "properties": {
+                "description": {
+                    "description": "A human-readable description for a thing",
+                    "type": "string"
+                },
+                "evidence_type": {
+                    "description": "Type of evidence used to determine the interaction using the Evidence and Conclusion Ontology.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": "string"
+                },
+                "participants": {
+                    "description": "Names of the microbial entities, with descriptions of any genetic manipulations performed.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "reference": {
+                    "description": "Persistent identifier (e.g. DOI or URL) to a resource, script, or article, documenting the method.",
+                    "type": "string"
+                },
+                "tax_id": {
+                    "description": "NCBI Taxonomy identifiers at the relevant taxonomic level. Novel taxa lacking identifiers are denoted by N/A.",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "participants",
+                "tax_id",
+                "evidence_type",
+                "reference",
+                "id"
+            ],
+            "title": "IntermicrobialInteraction",
+            "type": "object"
+        },
+        "IntermicrobialInteractionCollection": {
+            "additionalProperties": false,
+            "description": "A holder for IntermicrobialInteraction objects",
+            "properties": {
+                "entries": {
+                    "description": "An IntermicrobialInteraction object",
+                    "items": {
+                        "$ref": "#/$defs/IntermicrobialInteraction"
+                    },
+                    "type": "array"
+                }
+            },
+            "title": "IntermicrobialInteractionCollection",
+            "type": "object"
+        },
+        "NamedThing": {
+            "additionalProperties": false,
+            "description": "A generic grouping for any identifiable entity",
+            "properties": {
+                "description": {
+                    "description": "A human-readable description for a thing",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "NamedThing",
+            "type": "object"
+        }
+    },
+    "$id": "https://w3id.org/FAIR-MI/miiid-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "additionalProperties": true,
+    "description": "Represents an interaction between microbial entities",
+    "metamodel_version": "1.7.0",
+    "properties": {
+        "description": {
+            "description": "A human-readable description for a thing",
+            "type": "string"
+        },
+        "evidence_type": {
+            "description": "Type of evidence used to determine the interaction using the Evidence and Conclusion Ontology.",
+            "type": "string"
+        },
+        "id": {
+            "description": "A unique identifier for a thing",
+            "type": "string"
+        },
+        "name": {
+            "description": "A human-readable name for a thing",
+            "type": "string"
+        },
+        "participants": {
+            "description": "Names of the microbial entities, with descriptions of any genetic manipulations performed.",
+            "items": {
+                "type": "string"
+            },
+            "type": "array"
+        },
+        "reference": {
+            "description": "Persistent identifier (e.g. DOI or URL) to a resource, script, or article, documenting the method.",
+            "type": "string"
+        },
+        "tax_id": {
+            "description": "NCBI Taxonomy identifiers at the relevant taxonomic level. Novel taxa lacking identifiers are denoted by N/A.",
+            "items": {
+                "type": "integer"
+            },
+            "type": "array"
+        }
+    },
+    "required": [
+        "participants",
+        "tax_id",
+        "evidence_type",
+        "reference",
+        "id"
+    ],
+    "title": "miiid-schema",
+    "type": "object",
+    "version": "0.1.0"
+}
