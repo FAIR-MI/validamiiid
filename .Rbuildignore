@@ -7,3 +7,5 @@ $run_dev.*
 ^.here$
 ^LICENSE\.md$
 ^CODE_OF_CONDUCT\.md$
+^doc$
+^Meta$
