@@ -17,13 +17,9 @@ app_ui <- function(request) {
       ),
       title = "validamiiid",
       bslib::layout_columns(
-        col_widths = 12, align = "center",
+        col_widths = c(-3, 6, -3), align = "center",
         h1(strong("validamiiid")),
-        tags$br(),
-        bslib::layout_columns(
-          col_widths = 6,
-          mod_editor_ui("editor_1")
-        )
+        mod_editor_ui("editor_1")
       )
     )
   )
