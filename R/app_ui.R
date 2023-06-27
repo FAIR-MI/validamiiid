@@ -9,19 +9,19 @@ app_ui <- function(request) {
     # Leave this function for adding external resources
     golem_add_external_resources(),
     # Your application UI logic
-    bslib::page_fill(
+    bslib::page_fluid(
       theme = bslib::bs_theme(
         version = 5, bootswatch = "default",
         primary = "#2892d7", warning = "#ff7477",
         base_font = bslib::font_link("Hack", "https://cdnjs.cloudflare.com/ajax/libs/hack-font/3.3.0/web/hack.min.css")
       ),
       title = "validamiiid",
-      column(
-        width = 12, align = "center",
+      bslib::layout_columns(
+        col_widths = 12, align = "center",
         h1(strong("validamiiid")),
-        tags$br(), tags$br(),
-        column(
-          width = 6,
+        tags$br(),
+        bslib::layout_columns(
+          col_widths = 6,
           mod_editor_ui("editor_1")
         )
       )
