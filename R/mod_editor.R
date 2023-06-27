@@ -40,6 +40,7 @@ mod_editor_server <- function(id) {
       shinyAce::aceEditor(ns("editor"),
         fontSize = 18,
         mode = "yaml", theme = "kuroir",
+        # TODO: move the value to a utils (business-logic) function, or package data
         value = paste(
           c(
             "id: miiid: # ID",
@@ -56,8 +57,10 @@ mod_editor_server <- function(id) {
         tabSize = 2,
         autoComplete = "live",
         autoCompleters = "static",
+        # TODO: move the properties to a utils (business-logic) function, or package data
         autoCompleteList = list(
-          MIIID = c("participants", "tax_id", "evidence_type", "reference", "participants_outcome")
+          required = c("id","participants", "tax_id", "evidence_type", "reference"),
+          recommended = c("participants_outcome")
         )
       )
     })
