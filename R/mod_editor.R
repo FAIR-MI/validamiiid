@@ -10,22 +10,20 @@
 mod_editor_ui <- function(id) {
   ns <- NS(id)
   tagList(
-    shiny::fluidRow(
       bslib::layout_column_wrap(
         width = 1/3,
         shiny::actionLink(ns("load_valid_ex"), "Load valid example"),
         shiny::actionLink(ns("load_invalid_ex"), "Load invalid example"),
         shiny::actionLink(ns("reset_editor"), "Clear editor text")
-      )
     ), shiny::br(),
-    shiny::fluidRow(shiny::uiOutput(ns("ace_editor"))),
-    shiny::fluidRow(
-      bslib::layout_column_wrap(
+    bslib::layout_column_wrap(width = 1,
+      shiny::uiOutput(ns("ace_editor"))
+      ),
+    bslib::layout_column_wrap(
         width = 1 / 3,
         shiny::actionButton(ns("validate"), "Validate", icon = icon("check")),
         shiny::downloadButton(ns("download")),
         shiny::actionButton(ns("contribute"), "Share", icon = icon("share-from-square"))
-      )
     )
   )
 }
