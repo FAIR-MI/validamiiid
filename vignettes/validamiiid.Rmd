@@ -96,7 +96,6 @@ miiid_validator <- jsonvalidate::json_validator(
   system.file("extdata", "miiid_jsonschema.json", package = "validamiiid"),
   engine = "ajv"
 )
-# TODO: capture the tabular output when invalid file is used
 ```
 
 
@@ -115,6 +114,22 @@ miiid_validator(valid_json)
 miiid_validator(invalid_json)
 ```
 
+## Parse validator
+
+```{r fct_parse_validator}
+parse_validator <- function(validator_result) {
+  if (is.null(attr(validator_result, "errors"))) {
+    stop("This validator result is not valid. Please run the validator with verbose = TRUE.")
+  }
+  errors_df <- attr(validator_result, "errors")
+  return(errors_df[, c("instancePath", "message")])
+}
+```
+
+```{r examples_parse_validator}
+res <- miiid_validator(invalid_json, verbose = TRUE)
+parse_validator(res)
+```
 
 
 # utils to add
