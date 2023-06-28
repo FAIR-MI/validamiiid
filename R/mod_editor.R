@@ -12,11 +12,6 @@ mod_editor_ui <- function(id) {
   tagList(
     bslib::layout_columns(
       shiny::uiOutput(ns("ace_editor"))
-      ),
-    bslib::layout_columns(
-        shiny::actionButton(ns("validate"), "Validate", icon = icon("check")),
-        shiny::downloadButton(ns("download")),
-        shiny::actionButton(ns("contribute"), "Share", icon = icon("share-from-square"))
     )
   )
 }

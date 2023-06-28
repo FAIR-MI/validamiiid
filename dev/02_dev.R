@@ -22,6 +22,10 @@ attachment::att_amend_desc()
 ## Create a module infrastructure in R/
 golem::add_module(name = "editor", with_test = TRUE) # Name of the module
 golem::add_module(name = "examples_reset", with_test = TRUE) # Name of the module
+golem::add_module(name = "validate", with_test = TRUE) # Name of the module
+golem::add_module(name = "download", with_test = TRUE) # Name of the module
+golem::add_module(name = "contribute", with_test = TRUE) # Name of the module
+
 
 ## Add helper functions ----
 ## Creates fct_* and utils_*

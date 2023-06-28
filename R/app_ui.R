@@ -20,7 +20,12 @@ app_ui <- function(request) {
         col_widths = c(-3, 6, -3), align = "center",
         h1(strong("validamiiid")),
         mod_examples_reset_ui("examples_reset_1"),
-        mod_editor_ui("editor_1")
+        mod_editor_ui("editor_1"),
+        bslib::layout_columns(
+          mod_validate_ui("validate_1"),
+          mod_download_ui("download_1"),
+          mod_contribute_ui("contribute_1")
+        )
       )
     )
   )
