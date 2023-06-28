@@ -33,7 +33,8 @@ yaml_to_json <- function(yaml_text){
   # Convert a text representation of a YAML to JSON string
   # Trying to limit writing files in the shiny app
   yaml::read_yaml(text = yaml_text) %>% 
-    jsonlite::toJSON(., auto_unbox = TRUE)
+    jsonlite::toJSON(., auto_unbox = TRUE) %>% 
+    as.character()
 }
 ```
 
@@ -92,7 +93,7 @@ gen-json-schema -t IntermicrobialInteraction src/miiid_schema/schema/miiid_schem
 ```{r fct_validate_miiid_data}
 library(jsonvalidate)
 miiid_validator <- jsonvalidate::json_validator(
-  system.file("extdata", "miiid_jsonchema.json", package = "validamiiid"),
+  system.file("extdata", "miiid_jsonschema.json", package = "validamiiid"),
   engine = "ajv"
 )
 # TODO: capture the tabular output when invalid file is used
@@ -102,9 +103,18 @@ miiid_validator <- jsonvalidate::json_validator(
 ## Validate
 
 ```{r examples_validate_miiid_data}
-miiid_validator(valid_data, verbose = TRUE)
-miiid_validator(invalid_data, verbose = TRUE)
+# Load examples
+data("valid_example_miiid", package = "validamiiid")
+data("invalid_example_miiid", package = "validamiiid")
+
+# Conversion to JSON
+valid_json <- yaml_to_json(valid_example_miiid)
+invalid_json <- yaml_to_json(invalid_example_miiid)
+
+miiid_validator(valid_json)
+miiid_validator(invalid_json)
 ```
+
 
 
 # utils to add
