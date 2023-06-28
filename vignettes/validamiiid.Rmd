@@ -72,9 +72,9 @@ json_to_yaml(ex_json_pairwise)
 ```
 
 
-# `validate_miiid_data()`
+# validate MIIID data
 
-This function relies on `{jsonvalidate}` to validate the converted data against the [MIIID schema](https://fair-mi.github.io/miiid-schema).
+This process relies on `{jsonvalidate}` to validate the converted data against the [MIIID schema](https://fair-mi.github.io/miiid-schema).
 
 ## Schema generation
 
@@ -87,26 +87,23 @@ gen-json-schema -t IntermicrobialInteraction src/miiid_schema/schema/miiid_schem
 # and why it throws a Error: TypeError: validator is not a function
 ```
 
-## Validation
+## Build validator once
 
 ```{r fct_validate_miiid_data}
 library(jsonvalidate)
-validate_miiid_data <- function(json_text, miiid_schema){
-  json_validate(json_text, miiid_schema, verbose = T, engine = "ajv")
-  # TODO: capture the tabular output when invalid file is used
-}
+miiid_validator <- jsonvalidate::json_validator(
+  system.file("extdata", "miiid_jsonchema.json", package = "validamiiid"),
+  engine = "ajv"
+)
+# TODO: capture the tabular output when invalid file is used
 ```
 
 
+## Validate
+
 ```{r examples_validate_miiid_data}
-validate_miiid_data(
-  here::here("data/valid.json"),
-  here::here("data/miiid_jsonschema.json")
-)
-validate_miiid_data(
-  here::here("data/invalid.json"),
-  here::here("data/miiid_jsonschema.json")
-)
+miiid_validator(valid_data, verbose = TRUE)
+miiid_validator(invalid_data, verbose = TRUE)
 ```
 
 
