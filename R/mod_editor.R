@@ -10,11 +10,6 @@
 mod_editor_ui <- function(id) {
   ns <- NS(id)
   tagList(
-      bslib::layout_columns(
-        shiny::actionLink(ns("load_valid_ex"), "Load valid example"),
-        shiny::actionLink(ns("load_invalid_ex"), "Load invalid example"),
-        shiny::actionLink(ns("reset_editor"), "Clear editor text")
-    ), shiny::br(),
     bslib::layout_columns(
       shiny::uiOutput(ns("ace_editor"))
       ),
