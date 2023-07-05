@@ -3,7 +3,7 @@
 # 2023-06-25
 
 FROM rocker/tidyverse:4.2
-RUN install2.r --error --skipinstalled styler golem shinyAce shinythemes jsonvalidate yaml devtools spelling attachment
+RUN install2.r --error --skipinstalled styler golem shinyAce shinythemes jsonvalidate yaml devtools spelling attachment rhub rsconnect
 
 # Add configuration file for Rstudio
 RUN echo '{\
