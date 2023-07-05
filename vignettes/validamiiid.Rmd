@@ -56,7 +56,7 @@ yaml_to_json(ex_yaml_pairwise)
 
 This function converts (and lint) a JSON string vector (or file) and convert into JSON string vector (or path)
 
-```{r}
+```{r fct_json_to_yaml, echo=FALSE}
 json_to_yaml <- function(json_text, ...){
   # Convert a text representation of a JSON to a YAML string
   jsonlite:::fromJSON(json_text) %>% 
@@ -138,7 +138,7 @@ parse_validator(res)
 
 This is to format/encode a URL with a template for an issue that would carry over a YAML file to Github for further examination. This function will be run only when validation was carried out.
 
-```{r fct_yaml_to_gh_issue}
+```{r fct_yaml_to_gh_issue, echo=FALSE}
 yaml_to_gh_issue <- function(
     yaml_text,
     repo_url = "https://github.com/fair-mi/miiid-schema",
@@ -191,6 +191,21 @@ yaml_to_gh_issue <- function(
 yaml_to_gh_issue( json_to_yaml(ex_json_pairwise) )
 ```
 
+## `get_schema_version()`
 
-* TODO: add utils function get_schema_version
-* ~~TODO: add utils function insert_miiid_type~~
+Extract the release version of the MIIID schema used for validation.
+
+```{r fct_get_schema_version, echo=FALSE}
+get_schema_version <- function() {
+  jsonlite::read_json(
+    system.file(
+      "extdata", "miiid_jsonschema.json",
+      package = "validamiiid"
+    )
+  )[["version"]]
+}
+```
+
+```{r ex_get_schema_version}
+get_schema_version()
+```
