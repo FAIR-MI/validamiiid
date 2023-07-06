@@ -5,7 +5,10 @@
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
 
-The goal of `{validamiiid}` is to edit and validate information on intermicrobial interaction data against the MIIID metadata schema using a [`{shiny}`](https://cran.r-project.org/package=shiny) application, built with [`{golem}`](https://cran.r-project.org/package=golem). Correct information can be submitted directly to a GitHub repository for review.
+The goal of [`{validamiiid}`](https://github.com/FAIR-MI/validamiiid) is to edit and validate description of intermicrobial interaction data against the MIIID metadata schema using a [`{shiny}`](https://cran.r-project.org/package=shiny) application, built with [`{golem}`](https://cran.r-project.org/package=golem). Correct descriptions can be submitted directly to a GitHub repository for review.
+
+> Try out the application on your favorite device (e.g., laptop, mobile)
+> at: <https://cpauvert.shinyapps.io/validamiiid>
 
 
 ## Code of Conduct
