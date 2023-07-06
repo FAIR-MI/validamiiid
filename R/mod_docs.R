@@ -104,7 +104,9 @@ mod_docs_ui <- function(id) {
                 href = "https://linkml.io/linkml/generators/json-schema.html",
                 "JSON schema artefact"
               ),
-              "exported from the MIIID schema (vXXX) developed with the LinkML framework, and",
+              "exported from the MIIID schema",
+              "(vXXX)", # TODO: replace with dynamic input from schema.
+              "developed with the LinkML framework, and",
               tags$a(
                 href = "https://docs.ropensci.org/jsonvalidate",
                 tags$code("{jsonvalidate}", .noWS = "after"),
