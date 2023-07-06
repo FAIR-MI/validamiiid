@@ -25,6 +25,7 @@ golem::add_module(name = "examples_reset", with_test = TRUE) # Name of the modul
 golem::add_module(name = "validate", with_test = TRUE) # Name of the module
 golem::add_module(name = "download", with_test = TRUE) # Name of the module
 golem::add_module(name = "contribute", with_test = TRUE) # Name of the module
+golem::add_module(name = "docs", with_test = FALSE) # Name of the module
 
 
 ## Add helper functions ----
