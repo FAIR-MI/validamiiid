@@ -9,22 +9,29 @@ Description: Edit and validate information on intermicrobial interaction
     metadata schema. Correct information can be submitted directly to a
     GitHub repository for review.
 License: GPL (>= 3)
+Depends: 
+    R (>= 2.10)
 Imports: 
     bslib,
     config (>= 0.3.1),
     golem (>= 0.4.1),
+    pkgload,
     shiny (>= 1.7.4),
     shinyAce
 Suggests: 
+    jsonlite,
+    jsonvalidate,
     knitr,
+    magrittr,
     rmarkdown,
     spelling,
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    utils,
+    yaml
+VignetteBuilder: 
+    knitr
 Config/testthat/edition: 3
 Encoding: UTF-8
 Language: en-US
 LazyData: true
 RoxygenNote: 7.2.3
-VignetteBuilder: knitr
-Depends: 
-    R (>= 2.10)
