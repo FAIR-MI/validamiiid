@@ -20,25 +20,14 @@ mod_editor_ui <- function(id) {
 #'
 #' @noRd
 mod_editor_server <- function(id) {
-  moduleServer(id, function(input, output, session) {
+  moduleServer(id, function(input, output, session, interaction_description) {
     ns <- session$ns
     output$ace_editor <- renderUI({
       shinyAce::aceEditor(ns("editor"),
         fontSize = 18,
         mode = "yaml", theme = "kuroir",
         # TODO: move the value to a utils (business-logic) function, or package data
-        value = paste(
-          c(
-            "id: miiid: # ID",
-            "participants:",
-            rep("  -  # <PARTICIPANT>", 3),
-            "tax_id:",
-            rep("  -  # <PARTICIPANT_TAX_ID>", 3),
-            "evidence_type:  # <USING Evidence & Conclusion Ontology (ECO)>",
-            "reference:  # <DOI>"
-          ),
-          collapse = "\n"
-        ),
+        value = interaction_description$default_content,
         height = "300px",
         tabSize = 2,
         autoComplete = "live",
