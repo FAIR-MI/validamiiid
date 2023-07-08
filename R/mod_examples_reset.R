@@ -28,7 +28,7 @@ mod_examples_reset_server <- function(id) {
     observeEvent(input$reset_editor, {
       gargoyle::trigger("clear")
     })
-    observeEvent(input$valid_example, {
+    observeEvent(input$load_valid_ex, {
       gargoyle::trigger("valid_ex")
     })
   })
