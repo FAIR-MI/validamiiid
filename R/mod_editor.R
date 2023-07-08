@@ -52,7 +52,7 @@ mod_editor_server <- function(id, interaction_description) {
     gargoyle::on("valid_ex", {
       shinyAce::updateAceEditor(
         session, "ace_editor",
-        value = "YOOOO"
+        value = interaction_description$valid_example
       )
     })
   })
