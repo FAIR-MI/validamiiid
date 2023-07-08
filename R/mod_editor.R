@@ -37,6 +37,11 @@ mod_editor_ui <- function(id) {
 mod_editor_server <- function(id, interaction_description) {
   moduleServer(id, function(input, output, session) {
     ns <- session$ns
+    observeEvent(input$ace_editor,{
+      shinyAce::updateAceEditor(session, "ace_editor",
+                                value =  interaction_description$default_content)
+
+    }, once = TRUE)
     gargoyle::on("clear", {
       shinyAce::updateAceEditor(session, "ace_editor", value = "")
     })
