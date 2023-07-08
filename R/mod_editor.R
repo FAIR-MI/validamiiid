@@ -38,6 +38,10 @@ mod_editor_server <- function(id, interaction_description) {
         )
       )
     })
+    observeEvent(input$clear_editor, {
+      gargoyle::watch("clear")
+      shinyACE::updateAceEditor(session, "ace_editor", value = "")
+    })
   })
 }
 

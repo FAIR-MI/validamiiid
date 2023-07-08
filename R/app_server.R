@@ -7,6 +7,9 @@
 app_server <- function(input, output, session) {
   # Start by instantiating a R6 object to exchange data (src: chap 15 Engineering Shiny)
   r6 <- InteractionDescription$new()
+
+  # Triggers/watchers for better reactivity control with {gargoyle}
+  gargoyle::init("clear")
   # Your application server logic
   mod_editor_server("editor_1", r6)
 }

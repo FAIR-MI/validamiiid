@@ -7,7 +7,7 @@
 #' @noRd
 #'
 #' @importFrom shiny NS tagList
-mod_examples_reset_ui <- function(id){
+mod_examples_reset_ui <- function(id) {
   ns <- NS(id)
   tagList(
     bslib::layout_columns(
@@ -21,10 +21,13 @@ mod_examples_reset_ui <- function(id){
 #' examples_reset Server Functions
 #'
 #' @noRd
-mod_examples_reset_server <- function(id){
-  moduleServer( id, function(input, output, session){
+mod_examples_reset_server <- function(id) {
+  moduleServer(id, function(input, output, session) {
     ns <- session$ns
-    # Here would be the updatefunctions to update the editor
+    # Here would be the update functions to update the editor
+    observeEvent(input$reset_editor, {
+      gargoyle::trigger("clear")
+    })
   })
 }
 
