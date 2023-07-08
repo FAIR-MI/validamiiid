@@ -15,7 +15,18 @@ mod_editor_ui <- function(id) {
         outputId = ns("ace_editor"),
         fontSize = 18,
         mode = "yaml", theme = "kuroir",
-        value = "YAML file",
+        value = paste(
+          c(
+            "id: miiid: # ID",
+            "participants:",
+            rep("  -  # <PARTICIPANT_NAME>", 3),
+            "tax_id:",
+            rep("  -  # <PARTICIPANT_TAX_ID>", 3),
+            "evidence_type:  # <USING Evidence & Conclusion Ontology (ECO)>",
+            "reference:  # <DOI>"
+          ),
+          collapse = "\n"
+        ),
         placeholder = "Write a description of a microbial interaction...",
         height = "300px",
         tabSize = 2,
