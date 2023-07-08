@@ -12,4 +12,5 @@ app_server <- function(input, output, session) {
   gargoyle::init("clear")
   # Your application server logic
   mod_editor_server("editor_1", r6)
+  mod_examples_reset_server("examples_reset_1")
 }

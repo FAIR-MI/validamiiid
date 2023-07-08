@@ -32,7 +32,7 @@ mod_examples_reset_server <- function(id) {
 }
 
 ## To be copied in the UI
-# mod_examples_reset_ui("examples_reset_1")
+#
 
 ## To be copied in the server
-# mod_examples_reset_server("examples_reset_1")
+#

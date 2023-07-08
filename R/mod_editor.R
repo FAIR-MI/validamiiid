@@ -23,10 +23,11 @@ mod_editor_server <- function(id, interaction_description) {
   moduleServer(id, function(input, output, session) {
     ns <- session$ns
     output$ace_editor <- renderUI({
-      shinyAce::aceEditor(ns("editor"),
+      shinyAce::aceEditor(ns("ace_editor"),
         fontSize = 18,
         mode = "yaml", theme = "kuroir",
         value = interaction_description$default_content,
+        placeholder = "Write a description of a microbial interaction...",
         height = "300px",
         tabSize = 2,
         autoComplete = "live",
@@ -38,9 +39,9 @@ mod_editor_server <- function(id, interaction_description) {
         )
       )
     })
-    observeEvent(input$clear_editor, {
+    observeEvent(input$reset_editor, {
       gargoyle::watch("clear")
-      shinyACE::updateAceEditor(session, "ace_editor", value = "")
+      shinyAce::updateAceEditor(session, ns("ace_editor"), value = "")
     })
   })
 }
