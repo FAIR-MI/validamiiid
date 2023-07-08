@@ -11,22 +11,11 @@ mod_editor_ui <- function(id) {
   ns <- NS(id)
   tagList(
     bslib::layout_columns(
-      shiny::uiOutput(ns("ace_editor"))
-    )
-  )
-}
-
-#' editor Server Functions
-#'
-#' @noRd
-mod_editor_server <- function(id, interaction_description) {
-  moduleServer(id, function(input, output, session) {
-    ns <- session$ns
-    output$ace_editor <- renderUI({
-      shinyAce::aceEditor(ns("ace_editor"),
+      shinyAce::aceEditor(
+        outputId = ns("ace_editor"),
         fontSize = 18,
         mode = "yaml", theme = "kuroir",
-        value = interaction_description$default_content,
+        value = "YAML file",
         placeholder = "Write a description of a microbial interaction...",
         height = "300px",
         tabSize = 2,
@@ -38,10 +27,18 @@ mod_editor_server <- function(id, interaction_description) {
           recommended = c("participants_outcome")
         )
       )
-    })
-    observeEvent(input$reset_editor, {
-      gargoyle::watch("clear")
-      shinyAce::updateAceEditor(session, ns("ace_editor"), value = "")
+    )
+  )
+}
+
+#' editor Server Functions
+#'
+#' @noRd
+mod_editor_server <- function(id, interaction_description) {
+  moduleServer(id, function(input, output, session) {
+    ns <- session$ns
+    gargoyle::on("clear", {
+      shinyAce::updateAceEditor(session, "ace_editor", value = "")
     })
   })
 }
