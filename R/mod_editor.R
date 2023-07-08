@@ -19,14 +19,13 @@ mod_editor_ui <- function(id) {
 #' editor Server Functions
 #'
 #' @noRd
-mod_editor_server <- function(id) {
-  moduleServer(id, function(input, output, session, interaction_description) {
+mod_editor_server <- function(id, interaction_description) {
+  moduleServer(id, function(input, output, session) {
     ns <- session$ns
     output$ace_editor <- renderUI({
       shinyAce::aceEditor(ns("editor"),
         fontSize = 18,
         mode = "yaml", theme = "kuroir",
-        # TODO: move the value to a utils (business-logic) function, or package data
         value = interaction_description$default_content,
         height = "300px",
         tabSize = 2,
@@ -34,7 +33,7 @@ mod_editor_server <- function(id) {
         autoCompleters = "static",
         # TODO: move the properties to a utils (business-logic) function, or package data
         autoCompleteList = list(
-          required = c("id","participants", "tax_id", "evidence_type", "reference"),
+          required = c("id", "participants", "tax_id", "evidence_type", "reference"),
           recommended = c("participants_outcome")
         )
       )
