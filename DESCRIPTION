@@ -12,10 +12,10 @@ License: GPL (>= 3)
 Depends: 
     R (>= 2.10)
 Imports: 
-    bslib,
+    bslib (>= 0.5.0),
     config (>= 0.3.1),
     golem (>= 0.4.1),
-    pkgload,
+    R6,
     shiny (>= 1.7.4),
     shinyAce
 Suggests: 

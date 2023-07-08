@@ -17,6 +17,7 @@
 ## Amend DESCRIPTION with dependencies read from package code parsing
 ## install.packages('attachment') # if needed.
 attachment::att_amend_desc()
+usethis::use_package("bslib", min_version = "0.5.0")
 
 ## Add modules ----
 ## Create a module infrastructure in R/
