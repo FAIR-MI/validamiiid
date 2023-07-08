@@ -13,7 +13,7 @@ InteractionDescription <- R6::R6Class(
         ),
         collapse = "\n"
       ),
-    valid_example = valid_example_miiid,
+    valid_example = NULL,
   clear = function() {},
   to_json = function() {},
   to_yaml = function() {},
