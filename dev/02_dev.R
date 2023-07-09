@@ -18,6 +18,7 @@
 ## install.packages('attachment') # if needed.
 attachment::att_amend_desc()
 usethis::use_package("bslib", min_version = "0.5.0")
+usethis::use_pipe()
 
 ## Add modules ----
 ## Create a module infrastructure in R/
@@ -31,7 +32,7 @@ golem::add_module(name = "docs", with_test = FALSE) # Name of the module
 
 ## Add helper functions ----
 ## Creates fct_* and utils_*
-golem::add_fct("helpers", with_test = TRUE)
+golem::add_fct("conversion", with_test = TRUE)
 golem::add_utils("helpers", with_test = TRUE)
 
 ## External resources

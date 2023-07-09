@@ -16,19 +16,19 @@ Imports:
     config (>= 0.3.1),
     gargoyle,
     golem (>= 0.4.1),
+    jsonlite,
+    magrittr,
     R6,
     shiny (>= 1.7.4),
-    shinyAce
+    shinyAce,
+    yaml
 Suggests: 
-    jsonlite,
     jsonvalidate,
     knitr,
-    magrittr,
     rmarkdown,
     spelling,
     testthat (>= 3.0.0),
-    utils,
-    yaml
+    utils
 VignetteBuilder: 
     knitr
 Config/testthat/edition: 3
