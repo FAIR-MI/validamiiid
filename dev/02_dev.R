@@ -34,6 +34,7 @@ golem::add_module(name = "docs", with_test = FALSE) # Name of the module
 ## Add helper functions ----
 ## Creates fct_* and utils_*
 golem::add_fct("conversion", with_test = TRUE)
+golem::add_fct("parser")
 golem::add_utils("helpers", with_test = TRUE)
 
 ## External resources
