@@ -25,6 +25,16 @@ mod_validate_server <- function(id,interaction_description){
       gargoyle::trigger("validate")
       # To then be validated
       interaction_description$validate()
+      # Indicate to the user
+      if(interaction_description$is_valid){
+        showNotification(
+          "The description is valid!", type = "message"
+        )
+      } else {
+        showNotification(
+          "The description is NOT valid!\nSee the output message", type = "error"
+        )
+      }
     })
   })
 }
