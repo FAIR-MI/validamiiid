@@ -12,5 +12,7 @@ parse_validator <- function(validator_result) {
     stop("This validator result is not valid. Please run the validator with verbose = TRUE.")
   }
   errors_df <- attr(validator_result, "errors")
-  return(errors_df[, c("instancePath", "message")])
+  errors_df <- errors_df[, c("instancePath", "message")]
+  names(errors_df) <- c("property", "message")
+  return(errors_df)
 }
