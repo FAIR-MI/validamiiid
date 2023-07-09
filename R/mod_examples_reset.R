@@ -31,6 +31,9 @@ mod_examples_reset_server <- function(id) {
     observeEvent(input$load_valid_ex, {
       gargoyle::trigger("valid_ex")
     })
+    observeEvent(input$load_invalid_ex, {
+      gargoyle::trigger("invalid_ex")
+    })
   })
 }
 

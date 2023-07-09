@@ -9,7 +9,7 @@ app_server <- function(input, output, session) {
   r6 <- InteractionDescription$new()
 
   # Triggers/watchers for better reactivity control with {gargoyle}
-  gargoyle::init("clear", "valid_ex")
+  gargoyle::init("clear", "valid_ex", "invalid_ex")
   # Your application server logic
   mod_editor_server("editor_1", r6)
   mod_examples_reset_server("examples_reset_1")
