@@ -17,13 +17,13 @@ Imports:
     gargoyle,
     golem (>= 0.4.1),
     jsonlite,
+    jsonvalidate,
     magrittr,
     R6,
     shiny (>= 1.7.4),
     shinyAce,
     yaml
 Suggests: 
-    jsonvalidate,
     knitr,
     rmarkdown,
     spelling,
