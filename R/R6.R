@@ -13,9 +13,9 @@ InteractionDescription <- R6::R6Class(
         ),
         collapse = "\n"
       ),
-  clear = function() {},
-  to_json = function() {},
-  to_yaml = function() {},
+  content = NULL,
+  to_json = function(yaml) {self$content <- yaml_to_json(yaml)},
+  to_yaml = function(json) {self$content <- json_to_yaml(json)},
   validate = function() {}, # method
   download = function() {}  # method
   )
