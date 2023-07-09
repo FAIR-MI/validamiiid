@@ -61,6 +61,9 @@ mod_editor_server <- function(id, interaction_description) {
         value = validamiiid::invalid_example_miiid
       )
     })
+    gargoyle::on("validate", {
+      interaction_description$validate(input$ace_editor)
+      })
   })
 }
 
