@@ -54,12 +54,14 @@ mod_editor_server <- function(id, interaction_description) {
         session, "ace_editor",
         value = validamiiid::valid_example_miiid
       )
+      interaction_description$content <- validamiiid::valid_example_miiid
     })
     gargoyle::on("invalid_ex", {
       shinyAce::updateAceEditor(
         session, "ace_editor",
         value = validamiiid::invalid_example_miiid
       )
+      interaction_description$content <- validamiiid::invalid_example_miiid
     })
     gargoyle::on("validate", {
       interaction_description$content <- input$ace_editor
