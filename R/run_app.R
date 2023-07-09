@@ -1,7 +1,3 @@
-# Need to load {gargoyle} to solve
-# Warning: Error in watch: could not find function "watch"
-library(gargoyle)
-
 #' Run the Shiny Application
 #'
 #' @param ... arguments to pass to golem_opts.

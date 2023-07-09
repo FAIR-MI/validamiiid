@@ -3,7 +3,8 @@
 # 2023-06-25
 
 FROM rocker/tidyverse:4.2
-RUN install2.r --error styler golem bslib shinyAce shinythemes jsonvalidate yaml devtools spelling attachment rhub rsconnect gargoyle
+RUN install2.r --error styler golem bslib shinyAce shinythemes jsonvalidate yaml devtools spelling attachment rhub rsconnect
+RUN installGithub.r ColinFay/gargoyle
 
 # Add configuration file for Rstudio
 RUN echo '{\

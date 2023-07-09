@@ -18,6 +18,7 @@
 ## install.packages('attachment') # if needed.
 attachment::att_amend_desc()
 usethis::use_package("bslib", min_version = "0.5.0")
+usethis::use_dev_package("gargoyle", remote = "ColinFay/gargoyle")
 usethis::use_pipe()
 
 ## Add modules ----

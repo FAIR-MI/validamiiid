@@ -14,7 +14,7 @@ Depends:
 Imports: 
     bslib (>= 0.5.0),
     config (>= 0.3.1),
-    gargoyle,
+    gargoyle (>= 0.0.1),
     golem (>= 0.4.1),
     jsonlite,
     jsonvalidate,
@@ -36,3 +36,5 @@ Encoding: UTF-8
 Language: en-US
 LazyData: true
 RoxygenNote: 7.2.3
+Remotes:  
+    ColinFay/gargoyle
