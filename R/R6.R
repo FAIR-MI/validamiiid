@@ -1,7 +1,7 @@
 InteractionDescription <- R6::R6Class(
   "InteractionDescription",
   public = list(
-    default_content = paste(
+    content = paste(
       c(
         "id: miiid:001_or_example # ID",
         "participants:",
@@ -15,7 +15,6 @@ InteractionDescription <- R6::R6Class(
     ),
     is_valid = NULL,
     error_validation = NULL,
-    content = NULL,
     # Impossible to assign the validate function as a R6 method
     # so wrapping a function around to have correct method
     miiid_validator = function(json) {
@@ -30,9 +29,9 @@ InteractionDescription <- R6::R6Class(
     # if not provide an $error_validation and FALSE $is_valid
     #
     # TODO: error handling when incomplete id (miiid:SPACE issues a yaml.load error)
-    validate = function(yaml) {
+    validate = function() {
       # Convert
-      json <- yaml_to_json(yaml)
+      json <- yaml_to_json(self$content)
       # Validate
       vld_output <- self$miiid_validator(json)
       # Update object

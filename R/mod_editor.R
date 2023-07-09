@@ -41,7 +41,7 @@ mod_editor_server <- function(id, interaction_description) {
       {
         shinyAce::updateAceEditor(
           session, "ace_editor",
-          value = interaction_description$default_content
+          value = interaction_description$content
         )
       },
       once = TRUE
@@ -62,7 +62,7 @@ mod_editor_server <- function(id, interaction_description) {
       )
     })
     gargoyle::on("validate", {
-      interaction_description$validate(input$ace_editor)
+      interaction_description$content <- input$ace_editor
       })
   })
 }
