@@ -14,4 +14,5 @@ app_server <- function(input, output, session) {
   mod_editor_server("editor_1", r6)
   mod_examples_reset_server("examples_reset_1")
   mod_validate_server("validate_1", r6)
+  mod_errors_table_server("errors_table_1", r6)
 }

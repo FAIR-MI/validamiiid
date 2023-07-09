@@ -10,7 +10,7 @@
 mod_validate_ui <- function(id){
   ns <- NS(id)
   tagList(
-    shiny::actionButton(ns("validate"), "Validate", icon = icon("check")),
+    shiny::actionButton(ns("validate"), "Validate", icon = icon("check"))
   )
 }
 

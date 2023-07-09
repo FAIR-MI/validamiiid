@@ -22,11 +22,15 @@ app_ui <- function(request) {
         mod_docs_ui("docs_1"),
         mod_examples_reset_ui("examples_reset_1"),
         mod_editor_ui("editor_1"),
-        bslib::layout_columns(class = "mb-5",
+        bslib::layout_columns(
           mod_validate_ui("validate_1"),
           mod_download_ui("download_1"),
           mod_contribute_ui("contribute_1")
-        )
+        ),
+        bslib::layout_columns(
+          col_widths = 12,
+          mod_errors_table_ui("errors_table_1")
+      )
       )
     )
   )

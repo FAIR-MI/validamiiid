@@ -29,7 +29,7 @@ golem::add_module(name = "validate", with_test = TRUE) # Name of the module
 golem::add_module(name = "download", with_test = TRUE) # Name of the module
 golem::add_module(name = "contribute", with_test = TRUE) # Name of the module
 golem::add_module(name = "docs", with_test = FALSE) # Name of the module
-
+golem::add_module(name = "errors_table", with_test = TRUE)
 
 ## Add helper functions ----
 ## Creates fct_* and utils_*
