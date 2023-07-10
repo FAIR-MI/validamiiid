@@ -1,9 +1,11 @@
-id: miiid:pairwise
+id: miiid:ternary
 participants:
-  - Acidobacteria
-  - Gammaproteobacteria
+  - Azotobacter vinelandii DSM 85
+  - Chlamydomonas reinhardtii strain 187
+  - Alternaria sp. GYI-051221
 tax_id:
-  - 57723
-  - 1236
-evidence_type: high throughput evidence used in automatic assertion
-reference: https://doi.org/10.1038/ismej.2011.119
+  - 354
+  - 3055
+  - 667197
+evidence_type: experimental evidence used in manual assertion [ECO:0000269]
+reference: https://doi.org/10.1007/s12223-010-0067-9
