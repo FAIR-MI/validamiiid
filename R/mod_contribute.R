@@ -17,10 +17,16 @@ mod_contribute_ui <- function(id){
 #' contribute Server Functions
 #'
 #' @noRd
-mod_contribute_server <- function(id){
+mod_contribute_server <- function(id, interaction_description){
   moduleServer( id, function(input, output, session){
     ns <- session$ns
-
+    observeEvent(input$contribute, {
+      if(interaction_description$is_valid){
+        browseURL(yaml_to_gh_issue(interaction_description$content))
+      } else{
+        showNotification("You need a validated file to contribute!")
+      }
+    })
   })
 }
 
@@ -28,4 +34,4 @@ mod_contribute_server <- function(id){
 # mod_contribute_ui("contribute_1")
 
 ## To be copied in the server
-# mod_contribute_server("contribute_1")
+#
