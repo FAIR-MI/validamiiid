@@ -16,3 +16,17 @@ parse_validator <- function(validator_result) {
   names(errors_df) <- c("property", "message")
   return(errors_df)
 }
+
+#' get_schema_version
+#'
+#' @description Extract the release version of the MIIID schema used for validation.
+#'
+#' @return a character
+get_schema_version <- function() {
+  jsonlite::read_json(
+    system.file(
+      "extdata", "miiid_jsonschema.json",
+      package = "validamiiid"
+    )
+  )[["version"]]
+}

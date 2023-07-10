@@ -105,7 +105,7 @@ mod_docs_ui <- function(id) {
                 "JSON schema artefact"
               ),
               "exported from the MIIID schema",
-              "(vXXX)", # TODO: replace with dynamic input from schema.
+              textOutput(ns("schema_version"),inline = TRUE),
               "developed with the LinkML framework, and",
               tags$a(
                 href = "https://docs.ropensci.org/jsonvalidate",
@@ -126,6 +126,9 @@ mod_docs_ui <- function(id) {
 mod_docs_server <- function(id) {
   moduleServer(id, function(input, output, session) {
     ns <- session$ns
+    output$schema_version <- renderText({
+      paste0("(v", get_schema_version(),")")
+    })
   })
 }
 
@@ -133,4 +136,4 @@ mod_docs_server <- function(id) {
 # mod_docs_ui("docs_1")
 
 ## To be copied in the server
-# mod_docs_server("docs_1")
+#
