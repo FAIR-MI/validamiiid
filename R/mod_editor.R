@@ -24,7 +24,7 @@ mod_editor_ui <- function(id) {
         # TODO: move the properties to a utils (business-logic) function, or package data
         autoCompleteList = list(
           required = c("id", "participants", "tax_id", "evidence_type", "reference"),
-          recommended = c("participants_outcome")
+          recommended = c("sequence_id", "method_type","env_exp", "participants_outcomes")
         )
       )
     )
