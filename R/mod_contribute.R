@@ -22,7 +22,7 @@ mod_contribute_server <- function(id, interaction_description) {
     ns <- session$ns
     observeEvent(input$contribute, {
       if (interaction_description$is_valid) {
-        browseURL(yaml_to_gh_issue(interaction_description$content))
+        utils::browseURL(yaml_to_gh_issue(interaction_description$content))
       } else {
         showNotification("You need a validated file to contribute!")
       }
