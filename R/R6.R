@@ -3,7 +3,7 @@ InteractionDescription <- R6::R6Class(
   public = list(
     content = paste(
       c(
-        "id: miiid:001_or_example # ID",
+        "id: miiid:001 # ID",
         "participants:",
         rep("  -  # <PARTICIPANT_NAME>", 3),
         "tax_id:",
@@ -13,7 +13,7 @@ InteractionDescription <- R6::R6Class(
       ),
       collapse = "\n"
     ),
-    is_valid = NULL,
+    is_valid = FALSE,
     error_validation = NULL,
     # Impossible to assign the validate function as a R6 method
     # so wrapping a function around to have correct method
