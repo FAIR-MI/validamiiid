@@ -25,10 +25,10 @@ mod_docs_ui <- function(id) {
                 "Use the (autocompleted)", tags$strong("required"), "and",
                 tags$strong("recommended"), "metadata from MIIID"
               ),
-              tags$li(tags$em("Or load examples in the editor to play around")),
               tags$li(tags$strong("Validate"), "the description against the metadata schema"),
-              tags$li(tags$strong("Share"), "your draft description eventually on the MIIID GitHub")
-            )
+              tags$li(tags$strong("Share"), "eventually your description on the MIIID GitHub")
+            ),
+            helpText("Tip: load examples in the editor to play around!")
           )
         ),
         bslib::nav_panel(
@@ -46,20 +46,27 @@ mod_docs_ui <- function(id) {
               tags$a(
                 href = "https://doi.org/10.1128/msystems.00659-22",
                 "previously suggested metadata",
-                .noWS = "after"
+                .noWS = "after", target = "_blank", rel = "noopener noreferrer"
               ),
               "."
             ),
             tags$p(
               "This metadata schema is developped using the",
-              tags$a(href = "https://linkml.io", "LinkML"),
+              tags$a(href = "https://linkml.io", "LinkML", target = "_blank", rel = "noopener noreferrer"),
               "modeling language.", "More details and terms definition can be search on the",
               tags$a(
                 href = "https://fair-mi.github.io/miiid-schema/",
-                "dedicated MIIID website", .noWS = "after"
+                "dedicated MIIID website", .noWS = "after", target = "_blank", rel = "noopener noreferrer"
               ), "."
             ),
-            helpText("Support the MIIID by adding a star to our Github!")
+            helpText(
+              "Support the MIIID by adding a star to our",
+              tags$a(
+                href = "https://github.com/FAIR-MI/miiid-schema",
+                "Github", target = "_blank", rel = "noopener noreferrer", .noWS = "after"
+              ),
+              "!"
+            )
           )
         ),
         bslib::nav_panel(
@@ -70,7 +77,8 @@ mod_docs_ui <- function(id) {
             "In LinkML, they are called", tags$em("slots"), "and can be looked up",
             "on", tags$a(
               href = "https://fair-mi.github.io/miiid-schema/",
-              "fair-mi.github.io/miiid-schema", .noWS = "after"
+              "fair-mi.github.io/miiid-schema", .noWS = "after",
+              target = "_blank", rel = "noopener noreferrer"
             ), "."
           ),
           tags$p(
@@ -78,7 +86,7 @@ mod_docs_ui <- function(id) {
             "Browse to the",
             tags$a(
               href = "https://evidenceontology.org/browse/#ECO_0000000",
-              "Evidence & Conclusion Ontology"
+              "Evidence & Conclusion Ontology", target = "_blank", rel = "noopener noreferrer"
             ),
             "to find an evidence term relevant for your case."
           )
@@ -89,27 +97,28 @@ mod_docs_ui <- function(id) {
             tags$p(
               tags$a(
                 href = "https://github.com/FAIR-MI/validamiiid",
-                tags$code("{validamiiid}", .noWS = "after")
+                tags$code("{validamiiid}", .noWS = "after", target = "_blank", rel = "noopener noreferrer")
               ), "is a",
               tags$a(
                 href = "https://shiny.posit.co",
-                tags$code("{shiny}", .noWS = "after")
+                tags$code("{shiny}", .noWS = "after", target = "_blank", rel = "noopener noreferrer")
               ), "application developped using",
               tags$a(
                 href = "https://thinkr-open.github.io/golem",
                 tags$code("{golem}", .noWS = "after"), .noWS = "after",
+                target = "_blank", rel = "noopener noreferrer"
               ), ".",
               "It uses the",
               tags$a(
                 href = "https://linkml.io/linkml/generators/json-schema.html",
-                "JSON schema artefact"
+                "JSON schema artefact", target = "_blank", rel = "noopener noreferrer"
               ),
               "exported from the MIIID schema",
-              textOutput(ns("schema_version"),inline = TRUE),
+              textOutput(ns("schema_version"), inline = TRUE),
               "developed with the LinkML framework, and",
               tags$a(
                 href = "https://docs.ropensci.org/jsonvalidate",
-                tags$code("{jsonvalidate}", .noWS = "after"),
+                tags$code("{jsonvalidate}", .noWS = "after", target = "_blank", rel = "noopener noreferrer"),
               ),
               "to perform the validation."
             )
@@ -127,7 +136,7 @@ mod_docs_server <- function(id) {
   moduleServer(id, function(input, output, session) {
     ns <- session$ns
     output$schema_version <- renderText({
-      paste0("(v", get_schema_version(),")")
+      paste0("(v", get_schema_version(), ")")
     })
   })
 }
