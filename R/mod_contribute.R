@@ -31,7 +31,7 @@ mod_contribute_server <- function(id, interaction_description) {
             "Make sure you have an account on Github before, or",
             tags$a(
               href = "https://github.com/signup", "signup there",
-              target = "_blank", rel = "noopener noreferrer"
+              target = "_blank", rel = "noopener noreferrer", .noWS = "after"
             ), "."
           ),
           easyClose = TRUE,
@@ -39,7 +39,7 @@ mod_contribute_server <- function(id, interaction_description) {
             tags$a(
               class = "btn btn-primary",
               href = yaml_to_gh_issue(interaction_description$content),
-              "Share you desription!",
+              "Share your desription!",
               target = "_blank", rel = "noopener noreferrer"
             )
           )
