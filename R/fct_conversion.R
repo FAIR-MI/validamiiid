@@ -64,7 +64,7 @@ yaml_to_gh_issue <- function(
   # Assemble the template together with the YAML text
   tmplt <- base::paste0(
     pre_yaml_template, "\n",
-    yaml_text,
+    yaml_text, "\n",
     post_yaml_template
   )
   # Extract the interaction identifier
